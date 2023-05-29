@@ -11,8 +11,8 @@ using SalesWebMVC.Data;
 namespace SalesWebMVC.Migrations
 {
     [DbContext(typeof(SalesWebMVCContext))]
-    [Migration("20230529014909_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20230529054131_DepartmentsForeingKey")]
+    partial class DepartmentsForeingKey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace SalesWebMVC.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("SalesWebMVC.Models.SalesRecords", b =>
+            modelBuilder.Entity("SalesWebMVC.Models.SalesRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace SalesWebMVC.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("SalesRecords");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWebMVC.Models.Seller", b =>
@@ -92,7 +92,7 @@ namespace SalesWebMVC.Migrations
                     b.ToTable("Seller");
                 });
 
-            modelBuilder.Entity("SalesWebMVC.Models.SalesRecords", b =>
+            modelBuilder.Entity("SalesWebMVC.Models.SalesRecord", b =>
                 {
                     b.HasOne("SalesWebMVC.Models.Seller", "Seller")
                         .WithMany("Sales")
